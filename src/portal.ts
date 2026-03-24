@@ -20,12 +20,20 @@ export function isAuthenticated(): boolean {
 
 /**
  * Extract a hidden input value from a form.
+ * Uses attribute-based lookup to avoid selector injection.
  */
 export function getHiddenFieldValue(formSelector: string, fieldName: string): string | null {
   const form = document.querySelector(formSelector);
   if (!form) return null;
-  const input = form.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement | null;
-  return input?.value ?? null;
+  // Use querySelectorAll + attribute comparison instead of interpolating into a selector.
+  // This avoids CSS selector injection regardless of fieldName content.
+  const inputs = form.querySelectorAll('input');
+  for (const input of inputs) {
+    if (input.getAttribute('name') === fieldName) {
+      return input.value;
+    }
+  }
+  return null;
 }
 
 /**
