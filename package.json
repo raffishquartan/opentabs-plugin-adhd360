@@ -1,0 +1,61 @@
+{
+  "name": "opentabs-plugin-adhd360",
+  "description": "ADHD-360 patient portal - check prescriptions, submit observations, manage to-do items",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/adapter.iife.js",
+  "keywords": [
+    "opentabs-plugin",
+    "opentabs",
+    "mcp",
+    "modelcontextprotocol",
+    "chrome-extension",
+    "ai-agent",
+    "browser-automation"
+  ],
+  "opentabs": {
+    "displayName": "ADHD 360",
+    "description": "Check prescription status, request prescriptions, submit observations, and view pending actions on the ADHD-360 patient portal",
+    "urlPatterns": [
+      "*://app.adhd-360.com/*"
+    ],
+    "homepage": "https://www.adhd-360.com"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && opentabs-plugin build",
+    "dev": "tsc --watch --preserveWatchOutput & opentabs-plugin build --watch",
+    "type-check": "tsc --noEmit",
+    "lint": "biome lint src/",
+    "lint:fix": "biome lint --fix src/",
+    "format:check": "biome format src/",
+    "format": "biome format --write src/",
+    "check": "npm run build && npm run type-check && npm run lint && npm run format:check",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "peerDependencies": {
+    "zod": "^4.0.0"
+  },
+  "dependencies": {
+    "@opentabs-dev/plugin-sdk": "^0.0.81"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.6",
+    "@opentabs-dev/plugin-tools": "^0.0.81",
+    "jiti": "^2.6.1",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.3",
+    "zod": "^4.3.6"
+  },
+  "license": "MIT"
+}
