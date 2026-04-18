@@ -1,3 +1,6 @@
+// Copyright (c) 2026 Chris Fogelberg. All rights reserved.
+// Licensed for personal use only.
+
 import { OpenTabsPlugin, log } from '@opentabs-dev/plugin-sdk';
 import type { ToolDefinition } from '@opentabs-dev/plugin-sdk';
 import { getStatus } from './tools/get-status.js';

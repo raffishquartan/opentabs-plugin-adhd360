@@ -1,3 +1,6 @@
+// Copyright (c) 2026 Chris Fogelberg. All rights reserved.
+// Licensed for personal use only.
+
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
 // Mock the SDK before importing portal

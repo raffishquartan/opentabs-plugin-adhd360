@@ -1,3 +1,6 @@
+// Copyright (c) 2026 Chris Fogelberg. All rights reserved.
+// Licensed for personal use only.
+
 import { defineTool, ToolError } from '@opentabs-dev/plugin-sdk';
 import { z } from 'zod';
 import { isAuthenticated, getHiddenFieldValue, submitRailsForm } from '../portal.js';
